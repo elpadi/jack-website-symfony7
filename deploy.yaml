@@ -1,0 +1,26 @@
+import: 
+  - recipe/symfony.php
+
+config:
+  http_user: elpadi
+  http_group: elpadi
+  git_ssh_command: ssh
+  bin/php: /opt/cpanel/ea-php83/root/usr/bin/php
+  repository: 'git@github.com:elpadi/jack-website-symfony7.git'
+
+hosts:
+  thejackmag.com:
+    remote_user: elpadi
+    hostname: thejackmag.com
+    deploy_path: '~/symfony-prod.thejackmag.com'
+  staging.thejackmag.com:
+    remote_user: elpadi
+    hostname: thejackmag.com
+    deploy_path: '~/symfony-staging.thejackmag.com'
+
+tasks:
+  build:
+    - run: uptime  
+
+after:
+  deploy:failed: deploy:unlock
