@@ -46,6 +46,7 @@
         "symfony/polyfill-php82": "*"
     },
     "scripts": {
+        "deploy-staging": "vendor/bin/dep deploy staging.thejackmag.com",
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
